@@ -58,9 +58,8 @@ The following shows the robot motion and the returned camera images
  ```
  Then choose the topic `/camera/rgb/image_raw` from the list.
 
- ---
 
 ## Contact
-I built everything from scratch because I really love to understand how the internals of ROS work. This is a step towards my aim to actively contribute to robotics open-source software.
+In this project, I built everything from scratch because I love to understand how the internals of ROS work. This is a step towards my aim to actively contribute to robotics open-source software.
 
 If you are interested in the presented work/ideas or if you have any questions, please feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/mohraess). We can discuss about this project and other interesting projects.
