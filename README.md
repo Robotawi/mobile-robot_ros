@@ -1,5 +1,5 @@
 # ROS - Mobile Robot
-This is a ROS melodic workspace created on Ubuntu 18.04. The workspace is for the simulation of a mobile robot built from scratch, includes sensors and actuators plugins, and incorporate the robot in a world file. The world file is built after my house. It is available [here](https://github.com/Robotawi/gazebo_world). The second 
+This is a ROS melodic workspace created on Ubuntu 18.04. The workspace is for the simulation of a mobile robot built from scratch, includes sensors and actuators plugins, and incorporate the robot in a world file. The world file is built after my house. It is available [here](https://github.com/Robotawi/gazebo_world).
 
 ## Installation
 
