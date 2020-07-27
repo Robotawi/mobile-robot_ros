@@ -1,5 +1,5 @@
 # ROS - Mobile Robot
-This is a ROS melodic workspace created on Ubuntu 18.04. The robot package in this class has two nodes. The first one builds a mobile robot from scratch, includes sensors and actuators plugins, and incorporate the robot in a world file. The world file is built after my house. It is available [here](https://github.com/Robotawi/gazebo_world).
+This is a ROS melodic workspace created on Ubuntu 18.04. The workspace is for the simulation of a mobile robot built from scratch, includes sensors and actuators plugins, and incorporate the robot in a world file. The world file is built after my house. It is available [here](https://github.com/Robotawi/gazebo_world). The second 
 
 ## Installation
 
@@ -21,7 +21,7 @@ This is a ROS melodic workspace created on Ubuntu 18.04. The robot package in th
     source ./devel/setup.bash
     ```
 ## Package description
-This package incorporates two nodes. The first is responsible for spawning the robot model in Gazebo simulator. The second is responsible to visual perception and actuation of the robot.The robot is set to follow a white ball that appears in the view of its camera, and stop otherwise. 
+There are two packages in this workspace. The first is responsible for spawning the robot model in Gazebo simulator. The second incorporates two nodes which implement visual perception and actuation of the robot. The robot is set to follow a white ball that appears in the view of its camera, and stop otherwise. 
 
 **To launch the simulation environment:**
 ```
