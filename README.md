@@ -23,7 +23,7 @@ This is a ROS workspace created on Ubuntu 18.04. The workspace is for the simula
 ## Package description
 There are two packages in this ROS workspace. The first is responsible for spawning the robot model in Gazebo simulator. The second incorporates two nodes which implement visual perception and actuation of the robot. The robot is set to follow a white ball that appears in the view of its camera, and stop otherwise. 
 
-![](./pkg_images/mobile_robot15.gif)
+![](./pkg_images/mobile_robot18.gif)
 
 **To launch the simulation world:**
 ```
