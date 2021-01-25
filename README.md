@@ -41,7 +41,7 @@ roslaunch my_robot world.launch
 roslaunch ball_chaser ball_chaser.launch
 ```
 **The above command will do the following:**
-- Start the vision processing node and detect where the white object is, on the left, middle, or the right of the camera image.
+- Start the vision processing node and detect the white ball.
 - Start the actuation node and drive the robot based on the visual feedback returned from the above node.
 
  The camera image is visualized through `rqt_image_view` node. The camera topic is `/camera/rgb/image_raw`.
@@ -56,7 +56,7 @@ roslaunch ball_chaser ball_chaser.launch
 
 The robot is a differential drive mobile robot that I bulit from scratch. The model includest two sensors; a camera and a LIDAR as shown below.
 
-![](./pkg_images/rbt_model.png)
+![](./pkg_images/rbt_model_new.png)
 
 
 ## Contact
