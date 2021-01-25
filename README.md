@@ -31,18 +31,18 @@ roslaunch my_robot world.launch
 ```
 
 **The above roslaunch command does the following:**
-    - Set the robot description param and include the robot_description.launch file.
-    - Set the world file and the robot initial pose in it.
-    - Start Gazebo, load the world, and spawn the robot model.
-    - Start rviz for visualization of the robot sensors. (uncomment if needed)
+- Set the robot description param and include the robot_description.launch file.
+- Set the world file and the robot initial pose in it.
+- Start Gazebo, load the world, and spawn the robot model.
+- Start rviz for visualization of the robot sensors.
   
 **To launch the visual perception and actuation nodes:**
 ```
 roslaunch ball_chaser ball_chaser.launch
 ```
 **The above command will do the following:**
-    - Start the vision processing node and detect where the white object is, on the left, middle, or the right of the camera image.
-    - Start the actuation node and drive the robot based on the visual feedback returned from the above node.
+- Start the vision processing node and detect where the white object is, on the left, middle, or the right of the camera image.
+- Start the actuation node and drive the robot based on the visual feedback returned from the above node.
 
  The camera image is visualized through `rqt_image_view` node. The camera topic is `/camera/rgb/image_raw`.
 ```
