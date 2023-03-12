@@ -35,9 +35,9 @@ The differential drive actuator plugin has been incorporated. The movement is co
 
 Localization is the problem of estimating the robot's pose (position and orientation) within a known map of the environment. To solve this problem, I generated the map of my Gazebo world and used Adaptive Monte Carlo Localization (AMCL), and its ROS package for mobile robot localization. The auto-generated map of my Gazebo world is shown below. 
 
-
-<img src="./pkg_images/map.png" alt="Image description" width="600">
-
+<p align="center">
+<img src="./pkg_images/map.png" alt="Image description" width="600" style="vertical-align: middle;">
+</p>
 
 
 AMCL is a probabilistic algorithm that uses a particle filter to estimate the robot's pose (position and orientation) in a given environment. It works by sampling a set of particles, where each particle represents a possible pose of the robot. These particles are then propagated through the environment based on the robot's motion and sensor readings.
@@ -59,13 +59,15 @@ RTAB-Map uses a feature-based approach to extract keypoint features from visual 
 ### The mapping results
 
 The resulting map using Real-Time Appearance-Based Mapping 
-
-<img src="./pkg_images/success_map_no_graph.png" alt="Image description" width="600">
-
+<p align="center">
+<img src="./pkg_images/success_map_no_graph.png" alt="Image description" width="600" style="vertical-align: middle;">
+</p>
 
 One aspect of getting successful results is having loop closures, which are added in the following map. 
 
-<img src="./pkg_images/success_map_graph.png" alt="Image description" width="600">
+<p align="center">
+<img src="./pkg_images/success_map_graph.png" alt="Image description" width="600" style="vertical-align: middle;">
+</p>
 
 The resulting 3D map shows a correctly reconstructed environment from the sensors data. 
 
