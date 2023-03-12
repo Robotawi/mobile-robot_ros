@@ -1,4 +1,4 @@
-# ROS - Mobile Robot
+# ROS - Mobile Robot: From Scratch to Autonomous Navigation
 
 Welcome to my collection of projects where I simulated a simple mobile robot and tackled some of the core problems in navigation using ROS tools. Through those projects, I aimed to gain familiarity with ROS navigation and explore how they can be used to solve navigation problems.
 
