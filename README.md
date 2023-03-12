@@ -1,70 +1,44 @@
 # ROS - Mobile Robot
 
-This is a ROS workspace created on Ubuntu 18.04. The workspace is for the simulation of a differential mobile robot built from scratch. The robots includes sensors and actuators plugins. The robot is simulated in a a world file that I created based on the design of my house. The world environment is available [here](https://github.com/Robotawi/gazebo_world), if you like to download and use it.
+Welcome to my collection of projects where I simulated a simple mobile robot and tackled some of the core problems in navigation using ROS tools. Through those projects, I aimed to gain familiarity with ROS navigation and explore how they can be used to solve navigation problems.
 
-## Installation
+In this projects collection, I solved the localization problem, the SLAM problem, and enabled autonomous navigation using ROS packages. To tackle the localization problem, I used the Adaptive Monte Carlo Localization (AMCL) algorithm, which allowed me to estimate the robot's position and orientation within a known map. I used the Real-Time Appearance-Based Mapping (RTAB-Map) package to construct a map of the environment and solve the Simultaneous Localization and Mapping (SLAM) problem.
 
-- #### Prerequisite
-    - ROS melodic on ubuntu 18.04.
-    - All ROS dependencies are satisfied.
-    - Gazebo simulator is installed.
+In addition, I have implemented autonomous navigation by using the ROS Navigation Stack, which enabled the robot to plan its path and avoid obstacles in real-time.
 
-- #### Clone
+**I will show next the designed world, the robot model, and results obtained for the navigation problems.**
 
-    ```
-    git clone https://github.com/Robotawi/mobile-robot_ros.git
-    ```
 
-- #### Setup
-    ```
-    cd mobile-robot_ros
-    catkin_make
-    source ./devel/setup.bash
-    ```
-## Package description
-There are two packages in this ROS workspace. The first is responsible for spawning the robot model in Gazebo simulator. The second incorporates two nodes which implement visual perception and actuation of the robot. The robot is set to follow a white ball that appears in the view of its camera, and stop otherwise. 
+## World design 
+
+I prepared a Gazebo simulation environment that is designed to resemble the layout of my apartment. This environment is intended to serve as a testing ground for experimentation and to facilitate the application of navigation algorithms.
+
+By using Gazebo's building editor and online model library, I have constructed a three-dimensional representation of my apartment, including walls, furniture, and other objects. The world environment is available [here](https://github.com/Robotawi/gazebo_world), if you like to download and use it.
+
+The next animation shows the designed world and feedback from robot camera fixed on the robot model spawned in Gazebo simulator. The warm up task I made was to task the robot to follow a white colored ball based on the visual (camera) feedback. 
 
 ![](./pkg_images/mobile_robot18.gif)
 
-**To launch the simulation world:**
-```
-roslaunch my_robot world.launch
-```
 
-**The above roslaunch command does the following:**
-- Set the robot description param and include the robot_description.launch file.
-- Set the world file and the robot initial pose in it.
-- Start Gazebo, load the world, and spawn the robot model.
-- Start rviz for visualization of the robot sensors.
-  
-**To launch the visual perception and actuation nodes:**
-```
-roslaunch ball_chaser ball_chaser.launch
-```
+## Robot design
 
-
-
-**The above command will do the following:**
-- Start the vision processing node and detect the white ball.
-- Start the actuation node and drive the robot based on the visual feedback returned from the above node.
-
- The camera image is visualized through `rqt_image_view` node. The camera topic is `/camera/rgb/image_raw`.
-```
- rosrun rqt_image_view rqt_image_view 
-```
-
-
-
-
-## The robot design
-
-The robot is a differential drive mobile robot that I bulit from scratch. The model includest two sensors; a camera and a LIDAR as shown below.
+I developed a custom differential drive mobile robot model from scratch using URDF primitives, which incorporates sensors to enable environmental awareness and intelligent decision-making for the next steps to come.
 
 ![](./pkg_images/rbt_model_new.png)
 
+
+The robot is equipped with an camera and a LIDAR sensor. The camera input is utilized by a node that uses computer vision techniques to identify and track a white ball that appears within the robot's field of view as shown before.
+
+The differential drive actuator plugin has been incorporated. The movement is commanded either in a tele-operated manner using keyboards, or algorithms in the last autonomous navigation phase.
+
 ## Solving the localization problem
 
-Localization is the problem of estimating the robot's pose (position and orientation) within a known map of the environment. To solve this problem, I used Adaptive Monte Carlo Localization (AMCL), and its ROS package for mobile robot localization. AMCL is part of the ROS Navigation Stack, which provides a collection of packages for autonomous navigation of mobile robots.
+Localization is the problem of estimating the robot's pose (position and orientation) within a known map of the environment. To solve this problem, I generated the map of my Gazebo world and used Adaptive Monte Carlo Localization (AMCL), and its ROS package for mobile robot localization. The auto-generated map of my Gazebo world is shown below. 
+
+
+<img src="./pkg_images/map.png" alt="Image description" width="600">
+
+
 
 AMCL is a probabilistic algorithm that uses a particle filter to estimate the robot's pose (position and orientation) in a given environment. It works by sampling a set of particles, where each particle represents a possible pose of the robot. These particles are then propagated through the environment based on the robot's motion and sensor readings.
 
@@ -82,17 +56,15 @@ SLAM (Simultaneous Localization and Mapping) is the problem of constructing a ma
 
 RTAB-Map uses a feature-based approach to extract keypoint features from visual data and then matches these features across different camera frames to construct a map. It also uses loop closure detection to detect revisited locations and to optimize the map over time. This combination of feature-based mapping and loop closure detection makes RTAB-Map a powerful tool for solving the SLAM problem.
 
-### The resulting map results
+### The mapping results
 
 The resulting map using Real-Time Appearance-Based Mapping 
 
-<!-- ![](./pkg_images/success_map_no_graph.png) -->
 <img src="./pkg_images/success_map_no_graph.png" alt="Image description" width="600">
 
 
 One aspect of getting successful results is having loop closures, which are added in the following map. 
 
-<!-- ![](./pkg_images/success_map_graph.png) -->
 <img src="./pkg_images/success_map_graph.png" alt="Image description" width="600">
 
 The resulting 3D map shows a correctly reconstructed environment from the sensors data. 
@@ -100,19 +72,20 @@ The resulting 3D map shows a correctly reconstructed environment from the sensor
 ![](./pkg_images/success_3d_map_opt.gif)
 
 
-## Autonomous navigation 
+## Autonomous Navigation 
 
-After solving the SLAM problem, we can use Rviz as well as programmed input to test the performance. 
+After solving the SLAM problem, we can use Rviz as well as programmed input to test the navigation performance. 
 
 Using Rviz GUI to move the robot: 
 
 ![](./pkg_images/success_nav_rviz.gif)
 
+
 Using programmed input to move the robot: 
 
 ![](./pkg_images/success_nav_prog.gif)
 
-## Contact
-In this project, I built everything from scratch because I love to understand how the internals of ROS work. This is a step towards my aim to actively contribute to robotics open-source software.
+The last navigation result simulates a pick and place task in which the robot takes the pick up place (or start point) as the upper left room, and the target point is the room on the bottom right. We can see the robot moving autonomously between the start and the end given the reliable map information collected using in the previous step. 
 
+## Contact
 If you are interested in the presented work/ideas or if you have any questions, please feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/mohraess). We can discuss about this project and other interesting projects.
