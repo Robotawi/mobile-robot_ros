@@ -32,7 +32,7 @@ The differential drive actuator plugin has been incorporated. The movement is co
 
 ## Warm up task: White color follower
 
-The next animation shows the designed world and feedback from robot camera fixed on the robot model spawned in Gazebo simulator. I completed this warm up task to enable the robot to follow a white colored ball based on the visual (camera) feedback. The image messgae is processed and the robot is commanded over a service that executes motions. 
+The next animation shows the designed world and feedback from robot camera fixed on the robot model spawned in Gazebo simulator. I completed this warm up task to enable the robot to follow a white colored ball based on the visual (camera) feedback. The camera image messages are processed to find the white color, and the robot is commanded over a service that executes motions. 
 
 ![](./pkg_images/white_color_follower.gif)
 
@@ -42,7 +42,7 @@ The next animation shows the designed world and feedback from robot camera fixed
 Localization is the problem of estimating the robot's pose (position and orientation) within a known map of the environment. To solve this problem, I generated the map of my Gazebo world and used Adaptive Monte Carlo Localization (AMCL), and its ROS package for mobile robot localization. The auto-generated map of my Gazebo world is shown below. 
 
 <p align="center">
-<img src="./pkg_images/map.png" alt="Image description" width="600" style="vertical-align: middle;">
+<img src="./pkg_images/map.png" alt="Image description" width="700" style="vertical-align: middle;">
 </p>
 
 
@@ -66,13 +66,13 @@ RTAB-Map uses a feature-based approach to extract keypoint features from visual 
 
 The resulting map using Real-Time Appearance-Based Mapping 
 <p align="center">
-<img src="./pkg_images/success_map_no_graph.png" alt="Image description" width="600" style="vertical-align: middle;">
+<img src="./pkg_images/success_map_no_graph.png" alt="Image description" width="700" style="vertical-align: middle;">
 </p>
 
 One aspect of getting successful results is having loop closures, which are added in the following map. 
 
 <p align="center">
-<img src="./pkg_images/success_map_graph.png" alt="Image description" width="600" style="vertical-align: middle;">
+<img src="./pkg_images/success_map_graph.png" alt="Image description" width="700" style="vertical-align: middle;">
 </p>
 
 The resulting 3D map shows a correctly reconstructed environment from the sensors data. 
