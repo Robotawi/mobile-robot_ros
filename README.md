@@ -13,11 +13,10 @@ In addition, I have implemented autonomous navigation by using the ROS Navigatio
 
 I prepared a Gazebo simulation environment that is designed to resemble the layout of my apartment. This environment is intended to serve as a testing ground for experimentation and to facilitate the application of navigation algorithms.
 
+![](./pkg_images/world.png)
+
+
 By using Gazebo's building editor and online model library, I have constructed a three-dimensional representation of my apartment, including walls, furniture, and other objects. The world environment is available [here](https://github.com/Robotawi/gazebo_world), if you like to download and use it.
-
-The next animation shows the designed world and feedback from robot camera fixed on the robot model spawned in Gazebo simulator. The warm up task I made was to task the robot to follow a white colored ball based on the visual (camera) feedback. 
-
-![](./pkg_images/mobile_robot18.gif)
 
 
 ## Robot design
@@ -30,6 +29,13 @@ I developed a custom differential drive mobile robot model from scratch using UR
 The robot is equipped with an camera and a LIDAR sensor. The camera input is utilized by a node that uses computer vision techniques to identify and track a white ball that appears within the robot's field of view as shown before.
 
 The differential drive actuator plugin has been incorporated. The movement is commanded either in a tele-operated manner using keyboards, or algorithms in the last autonomous navigation phase.
+
+## Warm up task: White color follower
+
+The next animation shows the designed world and feedback from robot camera fixed on the robot model spawned in Gazebo simulator. I completed this warm up task to enable the robot to follow a white colored ball based on the visual (camera) feedback. The image messgae is processed and the robot is commanded over a service that executes motions. 
+
+![](./pkg_images/white_color_follower.gif)
+
 
 ## Solving the localization problem
 
