@@ -5,13 +5,14 @@
   <description>The my_robot package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
-  <maintainer email="mohamed@todo.todo">zozo</maintainer>
+  <maintainer email="mohamed@todo.todo">Mohamed Raessa</maintainer>
   
   <!-- At least one license tag is needed-->
   <license>opensource</license>
 
   <!-- ament_cmake instead of catkin-->
   <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>ros_gz</depend>
 
   <export>
     <build_type>ament_cmake</build_type>
